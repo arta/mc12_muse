@@ -3,22 +3,28 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-
+    @posts = Post.order created_at: :desc
   end
 
   # GET /posts/new
   def new
-
+    @post = Post.new
   end
 
   # POST /posts
   def create
-
+    @post = Post.new post_params
+    if @post.save
+      redirect_to @post, notice:'Post created.'
+    else
+      render 'new'
+    end
   end
+  # redirect_to|render resource
 
   # GET /posts/:id
   def show
-
+    @post = Post.find params[:id]
   end
 
   # GET /posts/:id/edit
@@ -30,6 +36,7 @@ class PostsController < ApplicationController
   def update
 
   end
+  # redirect_to|render resource
 
   # DELETE /posts/:id
   def destroy
@@ -38,7 +45,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-
+      params.require( :post ).permit( :title, :link, :description )
     end
 
     def set_post

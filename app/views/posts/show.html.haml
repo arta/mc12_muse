@@ -1,6 +1,8 @@
 %h1 Post
 
-%p Show (some of) the post id: #{ params[:id] } contents.
+%p= @post.title
+%p= @post.link
+%p= @post.description
 
 =link_to 'Edit', edit_post_path
 =link_to 'All Posts', posts_path

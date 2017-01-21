@@ -1,1 +1,5 @@
-%p Form for #{params[:action] == 'new' ? 'a new post' : "an existing post id: #{params[:id]}"}.
+=simple_form_for @post do |f|
+  =f.input :title
+  =f.input :link
+  =f.input :description
+  =f.button :submit

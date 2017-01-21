@@ -1,8 +1,10 @@
 %h1 Posts
 
-%p List existing posts:
-%p= link_to 'Post 1', post_path( 1 )
-%p= link_to 'Post 2', post_path( 2 )
-%p= link_to 'Post 3', post_path( 3 )
+-@posts.each do |post|
+  %h2= link_to post.title, post
+  %p
+    Posted
+    =time_ago_in_words post.created_at
+    ago
 
-=link_to '+ Post', new_post_path
+=link_to '[+ Post]', new_post_path
