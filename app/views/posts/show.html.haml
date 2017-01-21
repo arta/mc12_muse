@@ -4,5 +4,6 @@
 %p= @post.link
 %p= @post.description
 
-=link_to 'Edit', edit_post_path
+=link_to 'Edit', [:edit, @post]
+=link_to 'Delete', @post, method: :delete, data:{ confirm:'Heads up! Delete?' }
 =link_to 'All Posts', posts_path

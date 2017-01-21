@@ -6,5 +6,8 @@
     Posted
     =time_ago_in_words post.created_at
     ago
+  %p
+    = link_to 'Edit', [:edit, post]
+    = link_to 'Delete', post, method: :delete, data:{ confirm:'Heads up! Delete?' }
 
 =link_to '[+ Post]', new_post_path

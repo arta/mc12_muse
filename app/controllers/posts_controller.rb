@@ -24,24 +24,28 @@ class PostsController < ApplicationController
 
   # GET /posts/:id
   def show
-    @post = Post.find params[:id]
   end
 
   # GET /posts/:id/edit
   def edit
-
   end
 
   # PATCH|PUT /posts/:id
   def update
-
+    if @post.update post_params
+      redirect_to @post, notice:'Post updated.'
+    else
+      render 'edit'
+    end
   end
   # redirect_to|render resource
 
   # DELETE /posts/:id
   def destroy
-
+    @post.destroy
+    redirect_to posts_path, notice:'Post deleted'
   end
+  # redirect_to resource
 
   private
     def post_params
@@ -49,6 +53,6 @@ class PostsController < ApplicationController
     end
 
     def set_post
-
+      @post = Post.find params[:id]
     end
 end
