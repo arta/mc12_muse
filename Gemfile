@@ -33,4 +33,5 @@ group :development do
   end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 1-21-17:
+gem 'simple_form', '~> 3.4'
 gem 'haml-rails', '~> 0.9.0'
