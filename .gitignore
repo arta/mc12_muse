@@ -19,3 +19,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# 1-22-17: Ignore paperclip attachments:
+public/system/*/images
