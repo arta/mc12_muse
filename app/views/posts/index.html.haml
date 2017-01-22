@@ -4,6 +4,7 @@
     Posted
     =time_ago_in_words post.created_at
     ago
-  %p
-    = link_to 'Edit', [:edit, post]
-    = link_to 'Delete', post, method: :delete, data:{ confirm:'Heads up! Delete?' }
+  -if current_user == post.user
+    %p
+      = link_to 'Edit', [:edit, post]
+      = link_to 'Delete', post, method: :delete, data:{ confirm:'Heads up! Delete?' }
