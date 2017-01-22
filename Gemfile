@@ -32,6 +32,8 @@ group :development do
   gem 'meta_request', '~> 0.4.0'
   end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# 1-22-17:
+gem 'paperclip', '~> 5.1'
 # 1-21-17:
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.4'

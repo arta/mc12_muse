@@ -1,0 +1,15 @@
+################################################################################
+1-22-17: #######################################################################
+• gem 'paperclip'
+: WHAT, WHEN: Image missing on the show page after implementing paperclip
+
+: WHY: consulting server's friendly messages reveals:
+
+    > Unpermitted parameter: image
+
+: remember: adding input to a form goes with a need to permit the key in params!
+
+: FIX: post_controller.rb:
+
+    params.require( :post ).permit( ..., :image )
+################################################################################
