@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /posts
@@ -53,7 +53,8 @@ class PostsController < ApplicationController
   #   rails:  =link_to .. like_post_path, method: :put
   #   router: put '/posts/:id/like', to: 'posts#upvote', as: like_post
   def upvote
-
+    @post.upvote_by current_user
+    redirect_to @post
   end
   # No view. Explicitly redirect_to a resource
 
@@ -62,7 +63,8 @@ class PostsController < ApplicationController
   #   rails:  =link_to .. dislike_post_path, method: :put
   #   router: put '/posts/:id/dislike', to: 'posts#downvote', as: dislike_post
   def downvote
-
+    @post.downvote_by current_user
+    redirect_to @post
   end
   # No view. Explicitly redirect_to a resource.
 
