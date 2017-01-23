@@ -3,15 +3,16 @@
 %p= @post.link
 %p= @post.description
 %p= @post.user.name
+
+#comment
+  %h2.comment_count= pluralize( @post.comments.size, 'Comment' )
+  =render @post.comments
+
+  =simple_form_for [@post, @post.comments.new] do |f|
+    =f.input :content, label: 'Reply to a thread', placeholder: 'Whadday say?'
+    =f.button :submit
+
 -if current_user == @post.user
   =link_to 'Edit', [:edit, @post]
   =link_to 'Delete', @post, method: :delete, data:{ confirm:'Heads up! Delete?' }
-=link_to 'All Posts', posts_path
-
-%h2 Comments
-=render @post.comments
-
-%p
-  =simple_form_for [@post, @post.comments.new] do |f|
-    =f.input :content, label: false, placeholder: 'Whadday say?'
-    =f.button :submit
+=link_to 'Home', posts_path
