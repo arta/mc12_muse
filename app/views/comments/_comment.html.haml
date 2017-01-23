@@ -1,3 +1,4 @@
 %blockquote
   %p #{comment.user.email} • #{time_ago_in_words( comment.created_at )} ago:
   %q= comment.content.capitalize
+  %p= link_to 'Delete', [@post, comment], method: :delete, data:{ confirm:'Heads up! Delete this comment?' }
