@@ -48,6 +48,24 @@ class PostsController < ApplicationController
   end
   # redirect_to resource
 
+  # PUT /posts/:id/like
+  #   html:   <a href='/posts/1/like', data-method='put'> .. </a>
+  #   rails:  =link_to .. like_post_path, method: :put
+  #   router: put '/posts/:id/like', to: 'posts#upvote', as: like_post
+  def upvote
+
+  end
+  # No view. Explicitly redirect_to a resource
+
+  # PUT /posts/:id/dislike
+  #   html:   <a href='/posts/1/dislike', data-method='put'> .. </a>
+  #   rails:  =link_to .. dislike_post_path, method: :put
+  #   router: put '/posts/:id/dislike', to: 'posts#downvote', as: dislike_post
+  def downvote
+
+  end
+  # No view. Explicitly redirect_to a resource.
+
   private
     def post_params
       params.require( :post ).permit( :title, :link, :description, :image )
