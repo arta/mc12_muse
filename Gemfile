@@ -32,6 +32,8 @@ group :development do
   gem 'meta_request', '~> 0.4.0'
   end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# 1-23-17:
+gem 'acts_as_votable', '~> 0.10.0'
 # 1-22-17:
 gem 'paperclip', '~> 5.1'
 # 1-21-17:
