@@ -5,6 +5,7 @@
     Posted
     =time_ago_in_words post.created_at
     ago
+  %p.comment_count= pluralize( post.comments.size, 'Comment' )
   -if current_user == post.user
     %p
       = link_to 'Edit', [:edit, post]
