@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   # DELETE /posts/:post_id/comments/:id
   #   html:   <a href='/posts/1/comments/1', data-method='delete'>..</a>
-  #   rails:  =link_to .. comment, method: :delete
+  #   rails:  =link_to .. [@post, comment], method: :delete
   #   router: delete '/posts/:post_id/comments/:id', to: 'comments#destroy'
   def destroy
     comment = Comment.find params[:id]
