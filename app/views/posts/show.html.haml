@@ -8,6 +8,9 @@
   =link_to 'Delete', @post, method: :delete, data:{ confirm:'Heads up! Delete?' }
 =link_to 'All Posts', posts_path
 
+%h2 Comments
+=render @post.comments
+
 %p
   =simple_form_for [@post, @post.comments.new] do |f|
     =f.input :content, label: false, placeholder: 'Whadday say?'
