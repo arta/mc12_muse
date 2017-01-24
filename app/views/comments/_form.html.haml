@@ -1,0 +1,3 @@
+=simple_form_for [@post, @post.comments.new] do |f|
+  =f.input :content, label: 'Reply to a thread', placeholder: 'Whadday say?'
+  =f.button :submit
