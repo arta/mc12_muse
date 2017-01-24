@@ -1,5 +1,23 @@
 ################################################################################
 1-23-17: #######################################################################
+################################################################################
+• Haml :: spacing of page elements
+
+: This
+
+    %i.fa.fa-comments-o                             (1)
+      =post.comments.size
+
+: is not the same as this:
+
+    %i.fa.fa-comments-o= post.comments.size         (2)
+
+
+: (1) inserts a whitespace between the <i> and the inserted content;
+      desired when the <i> has a graphical meaning (e.g. an icon holder).
+: (2) no white space between the two; desired when the first element
+      is just an html tag (container) (e.g. not here! :)
+################################################################################
 • gem 'acts_as_votable'
   $ rails g acts_as_votable:migration
 ################################################################################
