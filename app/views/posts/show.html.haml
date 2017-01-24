@@ -19,6 +19,23 @@
     -if current_user == @post.user
       =link_to 'Edit', [:edit, @post], class:'data'
       =link_to 'Delete', @post, method: :delete, data:{ confirm:'Heads up! Delete?' }, class:'data'
+  #random_post
+    .random_inspiration
+      .post
+        .post_image= link_to image_tag( @random_post.image.url( :small ) ), @random_post
+        .post_content
+          %h2.title= link_to @random_post.title, @random_post
+          .data.clearfix
+            %p.username Shared by #{@random_post.user.name}
+            %p.buttons
+              %span
+                %i.fa.fa-comments-o
+                =@random_post.comments.size
+              %span
+                %i.fa.fa-thumbs-o-up
+                =@random_post.get_likes.size
+
+
 
 #comments
   %h2.comment_count= pluralize( @post.comments.size, 'Comment' )

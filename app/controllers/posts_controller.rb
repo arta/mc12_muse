@@ -25,6 +25,7 @@ class PostsController < ApplicationController
 
   # GET /posts/:id
   def show
+    @random_post = Post.where.not( id: @post.id ).order('RANDOM()').first
   end
 
   # GET /posts/:id/edit
